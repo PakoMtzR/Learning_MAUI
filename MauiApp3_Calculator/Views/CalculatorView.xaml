@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3_Calculator.Views.CalculatorView"
+             xmlns:local="clr-namespace:MauiApp3_Calculator.ViewModels"
+             Title="CalculatorView">
+
+    <ContentPage.BindingContext>
+        <local:CalculatorViewModel/>
+    </ContentPage.BindingContext>
+    
+    <Grid RowDefinitions=".4*,.6*">
+        <VerticalStackLayout>
+            <Label Text="{Binding Expression}"
+                   StyleClass="LabelText, LabelOperations"/>   
+            <Label Text="{Binding Result}"
+                   StyleClass="LabelText, LabelResults"/>
+        </VerticalStackLayout>
+        <Grid Grid.Row="1">
+            <BoxView/>
+            <Grid ColumnDefinitions="*,*,*,*"
+                  ColumnSpacing="15"
+                  RowSpacing="15"
+                  RowDefinitions="*,*,*,*,*,*"
+                  Padding="15">
+                
+                <!-- Numbers -->
+                <Button Text="7" Grid.Row="2" Grid.Column="0" Command="{Binding AddCharacterCommand}" CommandParameter="7"/>
+                <Button Text="8" Grid.Row="2" Grid.Column="1" Command="{Binding AddCharacterCommand}" CommandParameter="8"/>
+                <Button Text="9" Grid.Row="2" Grid.Column="2" Command="{Binding AddCharacterCommand}" CommandParameter="9"/>
+                <Button Text="4" Grid.Row="3" Grid.Column="0" Command="{Binding AddCharacterCommand}" CommandParameter="4"/>
+                <Button Text="5" Grid.Row="3" Grid.Column="1" Command="{Binding AddCharacterCommand}" CommandParameter="5"/>
+                <Button Text="6" Grid.Row="3" Grid.Column="2" Command="{Binding AddCharacterCommand}" CommandParameter="6"/>
+                <Button Text="1" Grid.Row="4" Grid.Column="0" Command="{Binding AddCharacterCommand}" CommandParameter="1"/>
+                <Button Text="2" Grid.Row="4" Grid.Column="1" Command="{Binding AddCharacterCommand}" CommandParameter="2"/>
+                <Button Text="3" Grid.Row="4" Grid.Column="2" Command="{Binding AddCharacterCommand}" CommandParameter="3"/>
+                <Button Text="0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding AddCharacterCommand}" CommandParameter="0"/>
+                
+                <!-- Operations -->
+                <Button Text="AC" Grid.Row="0" Grid.Column="0" Command="{Binding ClearCommand}"/>
+                <Button Text="⌫" Grid.Row="0" Grid.Column="1" Command="{Binding DeleteCommand}"/>
+                <Button Text="M" Grid.Row="0" Grid.Column="2" Command="{Binding MemoryCommand}"/>
+                <Button Text="%" Grid.Row="0" Grid.Column="3" Command="{Binding OperationCommand}" CommandParameter="%"/>
+                <Button Text="√" Grid.Row="1" Grid.Column="0" Command="{Binding OperationCommand}" CommandParameter="√"/>
+                <Button Text="^" Grid.Row="1" Grid.Column="1" Command="{Binding OperationCommand}" CommandParameter="^"/>
+                <Button Text="1/x" Grid.Row="1" Grid.Column="2" Command="{Binding OperationCommand}" CommandParameter="1/x"/>
+                <Button Text="/" Grid.Row="1" Grid.Column="3" Command="{Binding AddCharacterCommand}" CommandParameter="/"/>
+                <Button Text="*" Grid.Row="2" Grid.Column="3" Command="{Binding AddCharacterCommand}" CommandParameter="*"/>
+                <Button Text="-" Grid.Row="3" Grid.Column="3" Command="{Binding AddCharacterCommand}" CommandParameter="-"/>
+                <Button Text="+" Grid.Row="4" Grid.Column="3" Command="{Binding AddCharacterCommand}" CommandParameter="+"/>
+                <Button Text="." Grid.Row="5" Grid.Column="2" Command="{Binding AddCharacterCommand}" CommandParameter="."/>
+                <Button Text="=" Grid.Row="5" Grid.Column="3" Command="{Binding CalculateCommand}"/>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
