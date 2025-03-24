@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LoginMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LoginMaui"
+    xmlns:views="clr-namespace:LoginMaui.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="LoginMaui">
+
+    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate views:LoginPage}" />
+    <ShellContent Route="SignUpPage" ContentTemplate="{DataTemplate views:SignUpPage}" />
+    <ShellContent Route="WelcomePage" ContentTemplate="{DataTemplate views:WelcomePage}" />
+
+</Shell>

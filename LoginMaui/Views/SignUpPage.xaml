@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginMaui.Views.SignUpPage"
+             Title="Sign Up">
+    
+    <VerticalStackLayout Padding="50">
+        <!-- Imagen en la parte superior -->
+        <Image Source="gato_soldado.jpg" HeightRequest="200" HorizontalOptions="Center"/>
+
+        <!-- Entry para el nombre de usuario -->
+        <Entry Placeholder="Username" Text="{Binding Username}" />
+
+        <!-- Entry para el email -->
+        <Entry Placeholder="Email" Text="{Binding Email}" />
+
+        <!-- Entry para la contraseña -->
+        <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" />
+
+        <!-- Entry para confirmar la contraseña -->
+        <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" IsPassword="True" />
+
+        <!-- Botón de Sign Up -->
+        <Button Text="Sign Up" Command="{Binding SignUpCommand}" />
+
+        <!-- Texto con hipervinculo para iniciar sesion -->
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Already have an account? "/>
+                    <Span Text="Login" TextColor="BlueViolet" TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToLoginCommand}" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </VerticalStackLayout>
+</ContentPage>
